@@ -15,14 +15,25 @@ class Program
 
         Video video2 = new Video("Learn CSS", "Ronald Regan", 34000);
 
-        Comment comment3 = new Comment("Nephi", "Asha", "This is a useless. He didn't even exlain the basics properly");
+        Comment comment3 = new Comment("He didn't even exlain the basics properly");
         Comment comment4 = new Comment("Magnus", "Friday", "Hated it");
 
         video2.AddComment(comment3);
         video2.AddComment(comment4);
 
+        Video video3 = new Video("Advanced C# Techniques", "DevMaster", 5200);
+
+        Comment comment5 = new Comment("Emily", "Brown", "This was so helpful!");
+        Comment comment6 = new Comment("Magnus", "Friday", "Hated it");
+        Comment comment7 = new Comment("JaneSmith", "Smith", "I learned so much from this, thanks!");
+
+        video3.AddComment(comment5);
+        video3.AddComment(comment6);
+        video3.AddComment(comment7);
+
         videos.Add(video1);
         videos.Add(video2);
+        videos.Add(video3);
 
         Console.WriteLine();
 

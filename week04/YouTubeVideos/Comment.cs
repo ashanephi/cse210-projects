@@ -4,6 +4,13 @@ public class Comment
     private string _lastName;
     private string _comment;
 
+    public Comment(string comment)
+    {
+        _firstName = "Anonymous";
+        _lastName = "User";
+        _comment = comment;
+    }
+
     public Comment(string firstName, string lastName, string comment)
     {
         _firstName = firstName;
