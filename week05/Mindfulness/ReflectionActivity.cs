@@ -40,7 +40,7 @@ public class ReflectingActivity : Activity
         {
             Console.WriteLine("\nConsider the following prompt: ");
             Console.WriteLine($"\n--- {GetRandomPrompt()} ---");
-            
+
             Logger.Log($"User reflected on: {GetRandomPrompt()}");
 
             Console.WriteLine("\nWhen you have something in mind, press enter to continue");
@@ -49,7 +49,7 @@ public class ReflectingActivity : Activity
             if(String.IsNullOrEmpty(userInput) || userInput.Trim().Length == 0)
             {
                 Console.WriteLine();
-                Console.WriteLine("Now ponder on each of the following questoins as they are related to this experience.");
+                Console.WriteLine("Now ponder on each of the following questions as they are related to this experience.");
                 Console.WriteLine();
                 Console.Write("You may begin in: ");
 
