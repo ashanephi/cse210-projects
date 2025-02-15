@@ -4,7 +4,7 @@ public class ChecklistGoal : Goal
     private int _target;
     private int _bonus;
 
-    public ChecklistGoal(string name, string description, int points, int target, int bonus)
+    public ChecklistGoal(string name, string description, string points, int target, int bonus)
         : base(name, description, points)
     {
         _amountCompleted = 0;
@@ -17,10 +17,11 @@ public class ChecklistGoal : Goal
         if (isComplete)
         {
             _amountCompleted++;
-            int totalPoints = _points;
+            int totalPoints = GetPoint();
             if (_amountCompleted == _target)
             {
                 totalPoints += _bonus;
+                AddXP(50); // This rewards XP for full completion
             }
         }
     }
@@ -28,13 +29,17 @@ public class ChecklistGoal : Goal
     public override void RecordEvent()
     {
         _amountCompleted++;
-        int totalPoints = _points;
+        int totalPoints = GetPoint();
+        AddXP(10); // XP for each checklist item
         if (_amountCompleted == _target)
         {
             totalPoints += _bonus;
             Console.WriteLine($"Bonus! You earned an extra {_bonus} points!");
+            ShowMotivationalQuote();
         }
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"You earned {totalPoints} points!");
+        Console.ResetColor();
     }
 
     public override bool IsComplete()
@@ -45,11 +50,11 @@ public class ChecklistGoal : Goal
     public override string GetDetailsString()
     {
         string status = IsComplete() ? "[X]" : "[ ]";
-        return $"{status} {_shortName}: ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
+        return $"{status} {GetName()}: ({GetDescription()}) -- Completed: {_amountCompleted}/{_target}";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"ChecklistGoal|{_shortName}|{_description}|{_points}|{_amountCompleted}|{_target}|{_bonus}";
+        return $"ChecklistGoal|{GetName()}|{GetDescription()}|{GetPoint()}|{_amountCompleted}|{_target}|{_bonus}";
     }
 }
