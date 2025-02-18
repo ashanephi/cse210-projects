@@ -1,26 +1,19 @@
-public abstract class Goal
+public abstract class Goal 
 {
     private string _shortName;
     private string _description;
     private string _points;
-    private int _xp; 
-    private static Random _random = new Random(); // This is made random for motivational messages
-    
+
     public Goal(string name, string description, string points)
     {
         _shortName = name;
         _description = description;
         _points = points;
-        _xp = 0;
     }
 
     public string GetName()
     {
         return _shortName;
-    }
-    public int GetPoint()
-    {
-        return int.Parse(_points);
     }
 
     public void SetName(string name)
@@ -32,35 +25,20 @@ public abstract class Goal
     {
         return _description;
     }
+
     public void SetDescription(string description)
     {
         _description = description;
     }
 
-    public void AddXP(int amount)
+    public string GetPoints()
     {
-        _xp += amount;
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine($"You gained {amount} XP!");
-        Console.ResetColor();
+        return _points;
     }
 
-    // Randomly displays motivational quotes
-    public void ShowMotivationalQuote()
+    public void SetPoints(string points)
     {
-        string[] quotes = {
-            "Keep pushing forward!",
-            "You'll get there",
-            "You're closer than you think!",
-            "Every step counts!",
-            "Greatness takes time!",
-            "Believe in yourself!",
-            "You're the best",
-        };
-        int index = _random.Next(quotes.Length);
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine($"\nMotivation: {quotes[index]}");
-        Console.ResetColor();
+        _points = points;
     }
 
     public abstract void RecordEvent();
