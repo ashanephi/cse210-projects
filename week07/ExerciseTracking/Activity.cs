@@ -1,32 +1,32 @@
 public abstract class Activity
 {
-    private DateTime _Date;
-    private int _Minutes;
+    private DateTime _date;
+    private int _minutes;
 
     public DateTime GetDate()
     {
-        return _Date;
+        return _date;
     }
 
     public void SetDate(DateTime date)
     {
-        _Date = date;
+        _date = date;
     }
 
     public int GetMinutes()
     {
-        return _Minutes;
+        return _minutes;
     }
 
     public void SetMinutes(int minutes)
     {
-        _Minutes = minutes;
+        _minutes = minutes;
     }
 
     public Activity(DateTime date, int minutes)
     {
-        _Date = date;
-        _Minutes = minutes;
+        _date = date;
+        _minutes = minutes;
     }
 
     public abstract double GetDistance(); 
